@@ -27,7 +27,8 @@ public class PessoaRepositorioImpl implements PessoaRepositorio {
                 PessoaRepositorioAdaptador.cast(paginacaoPessoasOrm),
                 paginacaoPessoasOrm.getTotalElements(),
                 paginacaoPessoasOrm.getTotalPages(),
-                page
+                paginacaoPessoasOrm.getPageable().getPageNumber(),
+                paginacaoPessoasOrm.getSize()
         );
     }
 
