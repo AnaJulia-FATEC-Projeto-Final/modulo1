@@ -1,4 +1,4 @@
-package com.anajulia.entity;
+package com.anajulia.entidades;
 
 import java.time.LocalDate;
 

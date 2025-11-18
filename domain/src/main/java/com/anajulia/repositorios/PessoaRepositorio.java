@@ -1,9 +1,9 @@
-package com.anajulia.repository;
+package com.anajulia.repositorios;
 
-import com.anajulia.entity.Pessoa;
+import com.anajulia.entidades.Pessoa;
 import java.util.List;
 
-public interface PessoaRepository {
+public interface PessoaRepositorio {
     List<Pessoa> listar(int page);
 
     Pessoa salvar(Pessoa pessoa);

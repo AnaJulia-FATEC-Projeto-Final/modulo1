@@ -1,14 +1,14 @@
-package com.anajulia.service;
+package com.anajulia.servicos;
 
-import com.anajulia.entity.Pessoa;
-import com.anajulia.exception.NotFoundException;
-import com.anajulia.repository.PessoaRepository;
+import com.anajulia.entidades.Pessoa;
+import com.anajulia.excecoes.NotFoundExcecao;
+import com.anajulia.repositorios.PessoaRepositorio;
 
-public class PessoaService {
+public class PessoaServico {
 
-    private final PessoaRepository repository;
+    private final PessoaRepositorio repository;
 
-    public PessoaService(PessoaRepository repository) {
+    public PessoaServico(PessoaRepositorio repository) {
         this.repository = repository;
     }
 
@@ -16,7 +16,7 @@ public class PessoaService {
         try {
             Pessoa updatePessoa = repository.lerPorId(pessoa.id());
             return salvar(updatePessoa.id(), pessoa);
-        } catch (NotFoundException ex) {
+        } catch (NotFoundExcecao ex) {
             return salvar(pessoa);
         }
     }
