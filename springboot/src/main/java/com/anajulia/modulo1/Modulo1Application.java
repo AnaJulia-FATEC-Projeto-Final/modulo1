@@ -17,6 +17,6 @@ public class Modulo1Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		LOG.info("projeto da ana julia iniciado!");
+		LOG.info("projeto da Ana Julia iniciado!");
 	}
 }
