@@ -8,12 +8,17 @@ import com.anajulia.modulo1.controller.dto.resposta.PessoaResposta;
 import com.anajulia.repositorios.PessoaRepositorio;
 import com.anajulia.servicos.PessoaServico;
 import jakarta.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/anajulia")
 public class PessoaControlador {
+
+    private static final Logger LOG = LoggerFactory.getLogger(PessoaControlador.class);
+
     private final PessoaRepositorio repositorio;
     private final PessoaServico servico;
 
@@ -27,12 +32,14 @@ public class PessoaControlador {
     public Paginacao<Pessoa> listar(
             @RequestParam(value = "page", defaultValue = "0") int page
     ) {
+        LOG.info("Listando pessoas - pagina: {}", page);
         return servico.listar(page);
     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/modulo1/pessoa")
     public PessoaResposta salvar(@Valid @RequestBody PessoaRequisicao request) {
+        LOG.info("Cadastrando nova pessoa: {}", request);
         Pessoa pessoa = PessoaControladorAdaptador.cast(request);
         return PessoaControladorAdaptador.cast(servico.cadastrarOuAtualizar(pessoa));
     }
@@ -40,12 +47,14 @@ public class PessoaControlador {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/modulo1/pessoa/{id}")
     public PessoaResposta lerPorId(@PathVariable("id") String id) {
+        LOG.info("Lendo pessoa por ID: {}", id);
         return PessoaControladorAdaptador.cast(servico.lerPorId(id));
     }
 
     @ResponseStatus(HttpStatus.OK)
     @DeleteMapping("/modulo1/pessoa/{id}")
     public void inativar(@PathVariable("id") String id) {
+        LOG.info("Inativando pessoa por ID: {}", id);
         servico.inativar(id);
     }
 }
