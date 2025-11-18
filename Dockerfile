@@ -7,6 +7,6 @@ EXPOSE 8082
 
 RUN wget -O dd-java-agent.jar 'https://dtdg.co/latest-java-tracer'
 
-COPY spring/target/*.jar app.jar
+COPY springboot/target/*.jar app.jar
 
 ENTRYPOINT ["java", "-jar", "app.jar"]
