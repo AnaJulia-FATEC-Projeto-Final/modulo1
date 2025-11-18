@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class PessoaServicoConfiguracao {
 
     @Bean
-    public PessoaServico clientService(
+    public PessoaServico pessoaServico(
             PessoaRepositorio repository
     ) {
         return new PessoaServico(repository);
