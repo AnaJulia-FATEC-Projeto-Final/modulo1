@@ -1,10 +1,11 @@
-application:
-  name: modulo1
+spring:
+  application:
+    name: modulo1
 
-data:
-  mongodb:
-    auto-index-creation: true
-    uri: mongodb://mongodb:27017/modulo1?serverSelectionTimeoutMs=15000&connectTimeoutMS=15000
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: mongodb://localhost:27017/modulo1?serverSelectionTimeoutMs=15000&connectTimeoutMS=15000
 
 server:
   port: 8082
