@@ -7,6 +7,7 @@ import com.anajulia.modulo1.controller.dto.resposta.ErroResposta;
 import jakarta.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -59,7 +60,7 @@ public class RestExceptionHandler {
 
     @ResponseBody
     @ResponseStatus(BAD_REQUEST)
-    @ExceptionHandler(BadRequestExcecao.class)
+    @ExceptionHandler({BadRequestExcecao.class, MethodArgumentNotValidException.class})
     public ErroResposta handleBadRequest(
             BadRequestExcecao exception,
             HttpServletRequest request
