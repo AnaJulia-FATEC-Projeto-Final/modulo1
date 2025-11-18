@@ -2,6 +2,8 @@ package com.anajulia.modulo1.repositorio.adaptador;
 
 import com.anajulia.entidades.Pessoa;
 import com.anajulia.modulo1.repositorio.orm.PessoaOrm;
+import org.springframework.data.domain.Page;
+import java.util.List;
 
 public class PessoaRepositorioAdaptador {
     private PessoaRepositorioAdaptador() {
@@ -23,5 +25,9 @@ public class PessoaRepositorioAdaptador {
                 pessoaOrm.dt_nascimento(),
                 pessoaOrm.ativo()
         );
+    }
+
+    public static List<Pessoa> cast(Page<PessoaOrm> paginacaoPessoasOrm) {
+        return paginacaoPessoasOrm.map(PessoaRepositorioAdaptador::cast).toList();
     }
 }

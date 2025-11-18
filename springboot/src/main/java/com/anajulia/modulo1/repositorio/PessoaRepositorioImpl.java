@@ -21,12 +21,12 @@ public class PessoaRepositorioImpl implements PessoaRepositorio {
 
     @Override
     public Paginacao<Pessoa> listar(int page) {
-        Page<PessoaOrm> pessoasOrm =  repository.listarTodosAtivos(Pageable.ofSize(10).withPage(page));
+        Page<PessoaOrm> paginacaoPessoasOrm =  repository.listarTodosAtivos(Pageable.ofSize(10).withPage(page));
 
         return new Paginacao<Pessoa>(
-                pessoasOrm.map(PessoaRepositorioAdaptador::cast),
-                pessoasOrm.getNumber(),
-                pessoasOrm.getSize(),
+                PessoaRepositorioAdaptador.cast(paginacaoPessoasOrm),
+                paginacaoPessoasOrm.getTotalElements(),
+                paginacaoPessoasOrm.getTotalPages(),
                 page
         );
     }

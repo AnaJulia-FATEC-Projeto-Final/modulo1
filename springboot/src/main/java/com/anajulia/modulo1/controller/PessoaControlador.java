@@ -24,7 +24,7 @@ public class PessoaControlador {
 
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("/modulo1/pessoa")
-    public Paginacao<Pessoa> getAll(
+    public Paginacao<Pessoa> listar(
             @RequestParam(value = "page", defaultValue = "0") int page
     ) {
         return servico.listar(page);

@@ -2,12 +2,12 @@ package com.anajulia.entidades;
 
 public class Paginacao<T> {
     private final Iterable<T> itens;
-    private final int totalItens;
+    private final long totalItens;
     private final int totalPaginas;
     private final int paginaAtual;
     private final int itensPorPagina = 10;
 
-    public Paginacao(Iterable<T> itens, int totalItens, int totalPaginas, int paginaAtual) {
+    public Paginacao(Iterable<T> itens, long totalItens, int totalPaginas, int paginaAtual) {
         this.itens = itens;
         this.totalItens = totalItens;
         this.totalPaginas = totalPaginas;
@@ -18,7 +18,7 @@ public class Paginacao<T> {
         return itens;
     }
 
-    public int getTotalItens() {
+    public long getTotalItens() {
         return totalItens;
     }
 
