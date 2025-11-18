@@ -1,3 +1,11 @@
 spring:
   application:
     name: modulo1
+
+  data:
+    mongodb:
+      auto-index-creation: true
+      uri: ${MONGODB_URI}
+
+server:
+  port: 8082
