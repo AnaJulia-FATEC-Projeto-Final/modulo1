@@ -14,7 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/anajulia")
+@RequestMapping("/anajulia/modulo1/v1")
 public class PessoaControlador {
 
     private static final Logger LOG = LoggerFactory.getLogger(PessoaControlador.class);
@@ -28,7 +28,7 @@ public class PessoaControlador {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/modulo1/pessoa")
+    @GetMapping("/pessoa")
     public Paginacao<Pessoa> listar(
             @RequestParam(value = "page", defaultValue = "0") int page
     ) {
@@ -37,7 +37,7 @@ public class PessoaControlador {
     }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/modulo1/pessoa")
+    @PostMapping("/pessoa")
     public PessoaResposta salvar(@Valid @RequestBody PessoaRequisicao request) {
         LOG.info("Cadastrando nova pessoa: {}", request);
         Pessoa pessoa = PessoaControladorAdaptador.cast(request);
@@ -45,14 +45,14 @@ public class PessoaControlador {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/modulo1/pessoa/{id}")
+    @GetMapping("/pessoa/{id}")
     public PessoaResposta lerPorId(@PathVariable("id") String id) {
         LOG.info("Lendo pessoa por ID: {}", id);
         return PessoaControladorAdaptador.cast(servico.lerPorId(id));
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping("/modulo1/pessoa/{id}")
+    @DeleteMapping("/pessoa/{id}")
     public void inativar(@PathVariable("id") String id) {
         LOG.info("Inativando pessoa por ID: {}", id);
         servico.inativar(id);
