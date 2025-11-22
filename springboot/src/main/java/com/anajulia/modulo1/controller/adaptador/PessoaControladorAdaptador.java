@@ -13,8 +13,7 @@ public class PessoaControladorAdaptador {
         return new PessoaResposta(
                 pessoa.id(),
                 pessoa.nome(),
-                pessoa.dt_nascimento().toString(),
-                pessoa.ativo()
+                pessoa.dt_nascimento().toString()
         );
     }
 
