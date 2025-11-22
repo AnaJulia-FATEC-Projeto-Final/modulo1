@@ -49,11 +49,11 @@ services:
     ports:
       - "27017:27017"
 
-#  anajulia:
+#  modulo1:
 #    image: anajulia/modulo1:latest
 #    container_name: modulo1
 #    environment:
-#      - MONGODB_URI=mongodb://mongodb:27017/modulo1?serverSelectionTimeoutMs=15000&connectTimeoutMS=15000
+#      - MONGODB_URI=mongodb://mongodb:27017/anajulia?serverSelectionTimeoutMs=15000&connectTimeoutMS=15000
 #    ports:
 #      - "8082:8082"
 #    depends_on:
