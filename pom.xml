@@ -8,13 +8,6 @@
     <packaging>pom</packaging>
     <name>modulo1</name>
 	<description>Módulo 1 do Projeto Final de Programação Multiplataforma</description>
-	<url/>
-	<licenses>
-		<license/>
-	</licenses>
-	<developers>
-		<developer/>
-	</developers>
     <modules>
         <module>domain</module>
 		<module>springboot</module>
